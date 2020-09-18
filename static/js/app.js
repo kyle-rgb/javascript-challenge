@@ -3,6 +3,7 @@ var tableData = data; // Array of objects
 console.log(data.length);
 var body = d3.select("tbody");
 
+var resetButton = d3.select("#reset-btn");
 var inputButton = d3.select("#filter-btn");
 var form = d3.select("#datetime");
 
@@ -36,27 +37,22 @@ for (sighting of data){
 console.log(i);
 inputButton.on("click", (e) => {
     let wantedDate = form.property("value"); // user cutoff date
-    console.log(wantedDate);
     let wantedDay = wantedDate.split("/")[1];
-    console.log(wantedDay)
     wantedDay = parseInt(wantedDay);
     var wholeTable = body.selectAll("tr")._groups;
-    console.log(typeof wholeTable);
-    console.log(wholeTable);
     for (row of wholeTable){
         for(tr of row){
             let spottingDay = tr.firstChild.textContent.split("/")[1]
             if (spottingDay < wantedDay){
                 tr.style.display = "none";
             }
-
         }
-        //if (row.text.includes("/")){
-            //console.log(row.text);
-        //}
-    };
+    }
+})
 
-
+resetButton.on("click", (e) => {
+    var wholeTable = body.selectAll("tr")._groups.forEach((data) => {data.forEach((d) => d.style.display = null)})
+    console.log(wholeTable);
 })
 
 // listen for event, parse dt; hide appropiate rows.
