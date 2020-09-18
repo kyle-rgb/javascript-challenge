@@ -41,11 +41,22 @@
                         <label for="city">City</label>
                         <input class="form-control" id="city" type="text" placeholder="El Cajon">
                         <label for="state">State</label>
-                        <input class="form-control" id="state" type="text" placeholder="NV">
+                        <input class="form-control" id="state" type="text" placeholder="OR">
                         <label for="country">Country</label>
                         <input class="form-control" id="country" type="text" placeholder="US">
-                        <label for="shape">Shape</label>
-                        <input class="form-control" id="shape" type="text" placeholder="light">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <label class="input-group-text" for="shapes">Shapes</label>
+                          </div>
+                          <select class="custom-select" id="shapes">
+                            <option selected>Choose...</option>
+                            <option style="color: black;" value="1">Spherical</option>
+                            <option style="color: black;" value="2">Light-related</option>
+                            <option style="color: black;" value="3">Pointy</option>
+                            <option style="color: black;" value="4">Other</option>
+                          </select>
+                        </div>
+                        
                       </li>
                     </ul>
                   </div>
